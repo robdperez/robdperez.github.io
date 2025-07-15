@@ -1,0 +1,25 @@
+
+p{
+
+    color: red;
+    background-color: purple;
+    font-size: 200%;
+
+}
+
+h1{
+
+    border: 5px black solid;
+    padding: 20px;
+    margin: 20px;
+}
+.para{
+    color: blue;
+    background-color: green;
+}
+
+p{color: purple;
+background-color: red;
+}
+   
+   
