@@ -1,0 +1,62 @@
+<style>
+    body {
+      margin: 0;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    }
+
+    .page {
+      background: url("img/gumball.jpg") no-repeat;
+      background-size: cover;
+      width: 450em;
+      height: 250em; 
+      position: relative;
+
+    
+    }
+
+    .logo {
+        width: 70em;
+        height: auto;
+        position: absolute;
+        top: 3em;
+        left: 6em;
+        
+    }
+
+    .gum, .dar {
+  position: absolute;
+  bottom: 50px;
+  width: 500px;         
+  height: 400px;        
+  background-color: blue; 
+  color: white;
+  font-size: 11em;     
+  text-align: center;
+  padding: 100px;          
+  line-height: 200px;   
+}
+
+.dar {
+  background-color: orange;
+  right: 30%;
+}
+
+.gum {
+  left: 25%;
+}
+
+.timer {
+  position: absolute;
+  bottom: 200px;
+  left: 45%;
+  background-color: black;
+  opacity: 0.6;
+  color: white;
+  font-size: 120px;
+  width: 300px;
+  height: 210px;
+  text-align: center;
+  padding-top: 10px;
+}
+    
+  </style>
