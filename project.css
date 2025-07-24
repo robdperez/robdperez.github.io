@@ -1,0 +1,111 @@
+
+/* base style*/
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: white;
+  }
+/* center header */
+  h1{
+    text-align: center;  
+  }
+
+  .logo {
+    width: 150px;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* info grid*/
+  .info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  /* concert boxes*/
+  .info div {
+    background-color: #333;
+    padding: 15px;
+    border:3px solid rgb(148, 43, 234); ;
+  }
+/* nav bar*/
+nav {
+    position: sticky;
+    top: 0;
+    background-color: rgb(148, 43, 234);
+    padding: 1em;
+    display: flex;             
+    flex-wrap: wrap;            
+    justify-content: center;   
+    gap: 1em;                
+  }
+  
+  /* nav links*/
+
+  nav a {
+    padding: 0.5em 1.5em;
+    color: white;
+    font-weight: bold;
+    margin: 0 1em;
+    transition: color 0.3s;
+  }
+  /* image styling */
+
+  img {
+    margin-top: 10px;
+    ;
+  }
+/* hover color transition*/
+
+  nav a:hover {
+    color: #ffccff; 
+  }
+  
+
+  main {
+    padding: 2em;
+    line-height: 1.6;
+  }
+
+  .center-image {
+    display: block;
+    margin: 20px auto;
+    width: 500px;
+    height: 500px;
+    border: 3px solid white;
+  }
+
+  @media screen and (max-width: 776px) {
+    .info {
+        /* stack boxes vertically*/
+      grid-template-columns: 1fr;
+    }
+/* makes logo shrink for mobile*/
+    .logo {
+        width: 80px;
+      }
+  /* stack nav links vertically*/
+    nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  /* less padding and margin for nav links*/
+    nav a {
+      padding: 0.5em;
+      margin: 0.3em 0;
+      display: block;
+    }
+  /* shrinks image for mobile*/
+    img {
+      width: 100px;
+      height: auto;
+    }
+  /* shrinks image based on screen size*/
+    .center-image {
+      width: 100%;
+      height: auto;
+    }
+  }
