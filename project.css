@@ -7,13 +7,13 @@ body {
     color: white;
   }
 /* center header */
-  h1{
+h1{
     padding: 0.5em;
     font-family: Orbitron, sans-serif;
     text-align: center;
   }
 
-  .header-content {
+.header-content {
     flex-direction: column;
     text-align: center;
     margin-left: 0;
@@ -25,7 +25,7 @@ body {
 
 
 
-  .header-text {
+.header-text {
     flex: 0 1 40%;
     padding-left: 5em;
     font-size: 1.3em;
@@ -34,7 +34,7 @@ body {
   }
 
   
-  footer {
+footer {
     background-color: black;
     color: white;
     text-align: center;
@@ -42,20 +42,20 @@ body {
     border-top: 1px solid #333;
   }
   
-  .footer-title {
+.footer-title {
     font-size: 2em;
     font-weight: bold;
     margin-bottom: 0.5em;
     font-family: Orbitron, sans-serif;
   }
   
-  .social-media {
+.social-media {
     display: flex;
     justify-content: center;
     gap: 1em;
   }
   
-  .social-media img {
+.social-media img {
     width: 40px;
     height: 40px;
     margin: 0;
@@ -63,14 +63,14 @@ body {
 
   }
 
-  .logo {
+.logo {
     width: 150px;
     height: auto;
     max-width: 100%;
   }
   
   /* info grid*/
-  .info {
+.info {
     display: grid;
     grid-template-columns: 750px 750px;
     gap: 20px;
@@ -79,7 +79,7 @@ body {
     margin: 0 auto;
   }
   /* concert boxes*/
-  .info div {
+.info div {
     background-color: #333;
     padding: 15px;
     border:3px solid rgb(148, 43, 234);
@@ -100,7 +100,7 @@ nav {
   
   /* nav links*/
 
-  nav a {
+nav a {
     text-decoration: none;
     padding: 0.2em 0.8em;
     color: white;
@@ -110,23 +110,23 @@ nav {
   }
   /* image styling */
 
-  img {
+img {
     margin-top: 10px;  
     padding: 1em;
   }
 /* hover color transition*/
 
-  nav a:hover {
+nav a:hover {
     color: #ffccff; 
   }
   
 
-  main {
+main {
     padding: 2em;
     line-height: 1.6;
   }
 
-  .center-image {
+.center-image {
     flex-shrink: 0;
     width: 500px;
     height: 500px;
