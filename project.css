@@ -8,7 +8,59 @@ body {
   }
 /* center header */
   h1{
-    text-align: center;  
+    padding: 0.5em;
+    font-family: Orbitron, sans-serif;
+    text-align: center;
+  }
+
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 0;
+    padding: 0.5em;
+    border-bottom: 2px solid #666;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+  }
+
+
+
+  .header-text {
+    flex: 0 1 40%;
+    padding-left: 5em;
+    font-size: 1.3em;
+    line-height: 1.6;
+    font-family: Orbitron, sans-serif;
+  }
+
+  
+  footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 2em 1em;
+    border-top: 1px solid #333;
+  }
+  
+  .footer-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    font-family: Orbitron, sans-serif;
+  }
+  
+  .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+  }
+  
+  .social-media img {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+
   }
 
   .logo {
@@ -20,42 +72,47 @@ body {
   /* info grid*/
   .info {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 750px 750px;
     gap: 20px;
     padding: 20px;
+    justify-content: center;
+    margin: 0 auto;
   }
   /* concert boxes*/
   .info div {
     background-color: #333;
     padding: 15px;
-    border:3px solid rgb(148, 43, 234); ;
+    border:3px solid rgb(148, 43, 234);
+    font-family: Oswald, sans-serif;
   }
 /* nav bar*/
 nav {
     position: sticky;
     top: 0;
     background-color: rgb(148, 43, 234);
-    padding: 1em;
+    padding:0.2em 0.5em;
     display: flex;             
     flex-wrap: wrap;            
-    justify-content: center;   
-    gap: 1em;                
+    align-items: center; 
+    justify-content: center;  
+    gap: 0.5em;                
   }
   
   /* nav links*/
 
   nav a {
-    padding: 0.5em 1.5em;
+    text-decoration: none;
+    padding: 0.2em 0.8em;
     color: white;
     font-weight: bold;
-    margin: 0 1em;
+    margin:  0 0.5em;
     transition: color 0.3s;
   }
   /* image styling */
 
   img {
-    margin-top: 10px;
-    ;
+    margin-top: 10px;  
+    padding: 1em;
   }
 /* hover color transition*/
 
@@ -70,42 +127,97 @@ nav {
   }
 
   .center-image {
-    display: block;
-    margin: 20px auto;
+    flex-shrink: 0;
     width: 500px;
     height: 500px;
     border: 3px solid white;
   }
 
-  @media screen and (max-width: 776px) {
+  @media screen and (max-width: 400px) {
     .info {
         /* stack boxes vertically*/
       grid-template-columns: 1fr;
+      padding: 10px;
+      gap: 15px;
     }
-/* makes logo shrink for mobile*/
+    
+    .info div {
+      padding: 10px;
+    }
+   
+    .info h2 {
+      font-size: 1.1em;
+    }
+   
+    .info h3 {
+      font-size: 1em;
+    }
+   
+    .info p {
+      font-size: 0.9em;
+    }
+   
+   /* makes logo shrink for mobile*/
     .logo {
-        width: 80px;
+        width: 50px;
+        margin: 0;
+        padding: 0;
       }
-  /* stack nav links vertically*/
+   /* horizontal nav layout for mobile*/
     nav {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
+      padding: 0.1em 0.5em;
+      min-height: auto;
     }
-  /* less padding and margin for nav links*/
+   
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1em;
+    }
+   /* compact nav links*/
     nav a {
-      padding: 0.5em;
-      margin: 0.3em 0;
-      display: block;
+      padding: 0.1em 0.3em;
+      margin: 0;
+      font-size: 0.75em;
+      line-height: 1.2;
     }
-  /* shrinks image for mobile*/
+   /* shrinks image for mobile*/
     img {
       width: 100px;
       height: auto;
     }
-  /* shrinks image based on screen size*/
+   /* stack header content on mobile */
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+      margin-left: 0;
+      padding: 0.5em;
+    }
+   /* shrinks image based on screen size*/
     .center-image {
       width: 100%;
+      max-width: 250px;
       height: auto;
     }
-  }
+    
+    .header-text {
+      padding-left: 0;
+      padding-top: 1em;
+      flex: none;
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+   
+    h1 {
+      font-size: 1.2em;
+      padding: 0.2em;
+    }
+   
+    main {
+      padding: 0.5em;
+    }
+   }
