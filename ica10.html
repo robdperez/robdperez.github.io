@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICA10</title>
+</head>
+
+<style>
+    button{
+
+        width: 100px;
+        height: auto;
+        border-color: solid black;
+        background-color: aqua;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 20px;
+        padding: 10px 10px;
+        box-shadow: 2px 2px 2px rgb(0 0 0 0.1);
+
+    }
+</style>
+<body>
+    <button type="button">Your name: *title*</button>
+    <button onclick="changeBackground()">Click here to change background</button>
+
+    <script>
+const btn = document.querySelector("button");
+btn.addEventListener('click', updateName);
+
+function updateName() {
+    const name = prompt("Enter your name")
+    btn.textContent = `Your name is ${name}`;
+}
+    </script>
+
+    <script>
+        function changeBackground(){
+        document.body.style.backgroundColor = "darkgreen";
+
+        }
+
+    </script>
+</body>
+</html>
