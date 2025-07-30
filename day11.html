@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Function Start</title>
+  <style>
+    body {
+      font-family: Helvetica, sans-serif;
+    }
+
+    .msgBox {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 260px;
+      background: #eee;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .msgBox p {
+      line-height: 1.5;
+      padding: 10px 20px;
+      color: #333;
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+    }
+
+    .msgBox button {
+      background: none;
+      border: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.1rem;
+      color: #aaa;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button>Display message box</button>
+
+  <script>
+    const btn = document.querySelector("button");
+    btn.addEventListener("click",displayMessage)
+    ;
+
+    function displayMessage() {
+      const body = document.body;
+
+        let msgText = prompt("Enter your message here!")
+        let msgType = prompt("What kind of message is it (warning or chat)?")
+
+      const panel = document.createElement("div");
+      panel.setAttribute("class", "msgBox");
+      body.appendChild(panel);
+
+      const msg = document.createElement("p");
+      msg.textContent = msgText;
+      panel.appendChild(msg);
+
+      const closeBtn = document.createElement("button");
+      closeBtn.textContent = "x";
+      panel.append(closeBtn);
+
+      closeBtn.addEventListener("click", () => panel.remove());
+
+      if (msgType === "warning") {
+        msg.style.backgroundImage = "url('img/warning.png')";
+        msg.style.paddingLeft = "30px";
+        panel.style.backgroundColor = "red";
+
+      } else if (msgType === "chat") {
+        msg.style.backgroundImage = "url('img/chat.png')";
+        msg.style.paddingLeft = "30px";
+        panel.style.backgroundColor = "aqua";
+
+      } else {
+        msg.style.paddingLeft = "20px";
+      }
+    }
+  </script>
+</body>
+</html>
