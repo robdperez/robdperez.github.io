@@ -49,12 +49,16 @@ button {
   cursor: pointer;
 }
 
+#spiderman-container {
+  position: relative; 
+  height: 100px; 
+}
+
 #spiderman-link {
-  position: fixed;
+  position: absolute;
   bottom: 20px;
   left: 20px;
   cursor: pointer;
- 
 }
 
 #spiderman-link img {
