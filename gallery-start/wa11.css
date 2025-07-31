@@ -1,0 +1,50 @@
+h1 {
+  font-family: Courier, sans-serif;
+  text-align: center;
+  color: black;
+}
+
+body {
+  background-color: #0077be;
+  font-family: Courier, sans-serif;
+  width: 640px;
+  margin: 0 auto;
+}
+
+.full-img {
+  position: relative;
+  display: block;
+  width: 640px;
+  height: 480px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 480px;
+  background-color: rgba(0,0,0,0);
+}
+
+button {
+  border: 2px solid white;
+  background: red;
+  color: white;
+  font-family: 'Courier', sans-serif;
+  font-size: 14px;
+  border-radius: 5px;
+  position: absolute;
+  cursor: pointer;
+  top: 2px;
+  left: 2px;
+  padding: 10px 20px;
+}
+
+
+.thumb-bar img {
+  display: block;
+  width: 20%;
+  float: left;
+  cursor: pointer;
+}
