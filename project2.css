@@ -1,0 +1,67 @@
+body {
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.phone-box {
+    background-color: lightgray;
+    padding: 20px;
+    margin: 30px;
+    border: 1px solid gray;
+}
+
+.phone-text {
+    font-size: 20px;
+    color: black;
+}
+
+.number-btn {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    color: white;
+    border: none;
+    font-size: 20px;
+    position: absolute;
+}
+
+.number-btn:hover {
+    background-color: lightgray;
+}
+
+.clear-button {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-left: 700px;
+    border-radius: 5px;
+}
+
+.clear-button:hover {
+    background-color: darkgray;
+}
+
+.confirm-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-left: 30px;
+    border-radius: 5px;
+}
+
+.confirm-button:hover {
+    background-color: darkgreen;
+}
+
+.btn0{top:100px; left:1500px }
+.btn1 { top: 800px; left: 1100px; }   
+.btn2 { top: 300px; left: 600px; }   
+.btn3 { top: 900px; left: 1600px; }   
+.btn4 { top: 600px; left: 1450px; }   
+.btn5 { top: 250px; left: 1200px; }   
+.btn6 { top: 900px; left: 0px; }   
+.btn7 { top: 0px; left: -15px; }   
+.btn8 { top: 450px; left: 500px; }   
+.btn9 { top: 350px; left: 150px; }
