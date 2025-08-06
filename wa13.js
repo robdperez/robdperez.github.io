@@ -1,24 +1,24 @@
 // Problem 1
 var employee1 = {
-    firstName: "Sam",
+    name: "Sam",
     department: "Tech",
-    designation: "Manager",
+    position: "Manager",
     salary: 40000,
     raiseEligible: true
   };
   
   var employee2 = {
-    firstName: "Mary",
+    name: "Mary",
     department: "Finance",
-    designation: "Trainee",
+    position: "Trainee",
     salary: 18500,
     raiseEligible: true
   };
   
   var employee3 = {
-    firstName: "Bill",
+    name: "Bill",
     department: "HR",
-    designation: "Executive",
+    position: "Executive",
     salary: 21200,
     raiseEligible: false
   };
@@ -36,9 +36,9 @@ var employee1 = {
   
   // Problem 3
   var employee4 = {
-    firstName: "Anna",
+    name: "Anna",
     department: "Tech",
-    designation: "Executive",
+    position: "Executive",
     salary: 25600,
     raiseEligible: false
   };
