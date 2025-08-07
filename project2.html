@@ -1,34 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link href="project2.css" rel="stylesheet">
-    <title>Phone Number Builder</title>
-   
-        
-    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phone Number Input</title>
+  <link rel="stylesheet" href="project2.css" />
 </head>
 <body>
 
-    <div class="phone-box">
-        <div class="phone-text">Phone Number: <span id="phone"></span></div>
+  <div class="phone-box">
+    <span class="phone-text">Phone Number:</span>
+    <span id="phone"></span>
+  </div>
+
+  <button class="clear-button" onclick="clearPhone()">Clear</button>
+  <button class="confirm-button" onclick="confirmPhone()">Confirm</button>
+
+  <div class="button-separator"></div>
+
+  <button class="number-btn btn0" onclick="addDigit('0')">0</button>
+  <button class="number-btn btn1" onclick="addDigit('1')">1</button>
+  <button class="number-btn btn2" onclick="addDigit('2')">2</button>
+  <button class="number-btn btn3" onclick="addDigit('3')">3</button>
+  <button class="number-btn btn4" onclick="addDigit('4')">4</button>
+  <button class="number-btn btn5" onclick="addDigit('5')">5</button>
+  <button class="number-btn btn6" onclick="addDigit('6')">6</button>
+  <button class="number-btn btn7" onclick="addDigit('7')">7</button>
+  <button class="number-btn btn8" onclick="addDigit('8')">8</button>
+  <button class="number-btn btn9" onclick="addDigit('9')">9</button>
+
+  <div id="intro-overlay">
+    <div class="intro-number-row">
+      <span class="intro-digit">0</span>
+      <span class="intro-digit">1</span>
+      <span class="intro-digit">2</span>
+      <span class="intro-digit">3</span>
+      <span class="intro-digit">4</span>
+      <span class="intro-digit">5</span>
+      <span class="intro-digit">6</span>
+      <span class="intro-digit">7</span>
+      <span class="intro-digit">8</span>
+      <span class="intro-digit">9</span>
     </div>
-    <button class="clear-button" onclick="clearPhone()">Clear</button>
-    <button class="confirm-button" onclick="confirmPhone()">Confirm</button>
-    <button class="number-btn btn0" onclick="addDigit('0')">0</button>
-    <button class="number-btn btn1" onclick="addDigit('1')">1</button>
-    <button class="number-btn btn2" onclick="addDigit('2')">2</button>
-    <button class="number-btn btn3" onclick="addDigit('3')">3</button>
-    <button class="number-btn btn4" onclick="addDigit('4')">4</button>
-    <button class="number-btn btn5" onclick="addDigit('5')">5</button>
-    <button class="number-btn btn6" onclick="addDigit('6')">6</button>
-    <button class="number-btn btn7" onclick="addDigit('7')">7</button>
-    <button class="number-btn btn8" onclick="addDigit('8')">8</button>
-    <button class="number-btn btn9" onclick="addDigit('9')">9</button>
+  </div>
 
+  <div id="confirmation-box">Phone Number Verified!</div>
 
-    <script src = "porject2.js">
-       
-    </script>
-
+  <script src="porject2.js"></script>
 </body>
 </html>
