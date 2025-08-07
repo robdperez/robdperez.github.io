@@ -63,7 +63,7 @@ window.onload = function () {
     if (overlay) {
       overlay.style.display = 'none';
     }
-    alert("Oh no! The numbers passed away and turned into ghosts! Find their ghosts around the page to input your phone number.");
+    alert("RIP, the numbers kicked the can and turned into ghosts. Find their ghosts in the blank area to input your phone number.");
   }, 4000);
 };
 
