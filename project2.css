@@ -1,128 +1,254 @@
-body {
-  background-color: white;
-  font-family: 'Futura', 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-}
+ body {
+            background-color: white;
+            font-family: 'Futura', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-.phone-box {
-  background-color: lightgray;
-  padding: 20px;
-  margin: 30px;
-  border: 1px solid gray;
-  border-radius: 10px;
-  width: fit-content;
-  margin-left: 700px;
-}
+        .phone-box {
+            background-color: lightgray;
+            padding: 20px;
+            margin: 30px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            width: fit-content;
+            margin-left: 700px;
+        }
 
-.phone-text {
-  font-size: 15px;
-  color: black;
-  font-weight: bold;
-}
+        .phone-text {
+            font-size: 15px;
+            color: black;
+            font-weight: bold;
+        }
 
-.number-btn {
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  color: white;
-  border: none;
-  font-size: 20px;
-  position: absolute;
-}
+        .number-btn {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            color: white;
+            border: none;
+            font-size: 20px;
+            font-family: 'Futura', 'Segoe UI', sans-serif;
+            position: absolute;
+        }
 
-.number-btn:hover {
-  background-color: lightgray;
-  color: black;
-  cursor: pointer;
-}
+        .number-btn:hover {
+            background-color: lightgray;
+            color: black;
+            cursor: pointer;
+        }
 
-.clear-button {
-  background-color: red;
-  color: white;
-  padding: 10px 20px;
-  border: 1px solid gray;
-  margin-left: 700px;
-  border-radius: 10px;
-  font-family: 'Futura', 'Segoe UI', sans-serif;
-  font-size: 16px;
-}
+        .clear-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: 1px solid gray;
+            margin-left: 700px;
+            border-radius: 10px;
+            font-family: 'Futura', 'Segoe UI', sans-serif;
+            font-size: 16px;
+        }
 
-.clear-button:hover {
-  background-color: darkred;
-  cursor: pointer;
-}
+        .clear-button:hover {
+            background-color: darkred;
+            cursor: pointer;
+        }
 
-.confirm-button {
-  background-color: green;
-  color: white;
-  padding: 10px 20px;
-  border: 1px solid gray;
-  margin-left: 30px;
-  border-radius: 10px;
-  font-family: 'Futura', 'Segoe UI', sans-serif;
-  font-size: 16px;
-}
+        .confirm-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: 1px solid gray;
+            margin-left: 30px;
+            border-radius: 10px;
+            font-family: 'Futura', 'Segoe UI', sans-serif;
+            font-size: 16px;
+        }
 
-.confirm-button:hover {
-  background-color: darkgreen;
-  cursor: pointer;
-}
+        .confirm-button:hover {
+            background-color: darkgreen;
+            cursor: pointer;
+        }
 
-.button-separator {
-  width: 100%;
-  height: 1px;
-  background-color: black;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
+        .button-separator {
+            width: 100%;
+            height: 1px;
+            background-color: black;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
 
-#confirmation-box {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: lightgreen;
-  border: 2px solid green;
-  padding: 30px 40px;
-  border-radius: 10px;
-  font-weight: bold;
-  color: darkgreen;
-  font-family: Futura, sans-serif;
-  font-size: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  z-index: 10000;
-  display: none;
-}
+        #confirmation-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: lightgreen;
+            border: 2px solid green;
+            padding: 30px 40px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: darkgreen;
+            font-family: Futura, sans-serif;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 10000;
+            display: none;
+        }
 
-#intro-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+        #error-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffcccc;
+            border: 2px solid red;
+            padding: 30px 40px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: darkred;
+            font-family: Futura, sans-serif;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 10000;
+            display: none;
+        }
 
-.intro-number-row {
-  display: flex;
-  gap: 20px;
-}
+        #rip-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            border: 3px solid white;
+            padding: 40px 50px;
+            border-radius: 15px;
+            font-weight: bold;
+            color: white;
+            font-family: 'Futura', 'Segoe UI', sans-serif;
+            font-size: 22px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            z-index: 10000;
+            display: none;
+            max-width: 500px;
+            line-height: 1.4;
+            position: relative;
+        }
 
-.intro-digit {
-  font-size: 48px;
-  color: black;
-  animation: fadeOut 4s ease forwards;
-}
+        #rip-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
 
-@keyframes fadeOut {
-  to {
-    color: white;
-    opacity: 0;
-  }
-}
+    
+
+        #main-content {
+            display: none;
+        }
+
+        #captcha-box {
+            position: fixed;
+            margin-top: 250px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            border: 3px solid white;
+            padding: 40px 50px;
+            border-radius: 15px;
+            font-weight: bold;
+            color: white;
+            font-family: 'Futura', 'Segoe UI', sans-serif;
+            font-size: 22px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            z-index: 10001;
+            display: none;
+            max-width: 600px;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        #captcha-input {
+            background-color: white;
+            color: black;
+            border: 2px solid white;
+            padding: 10px 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-family: 'Futura', 'Segoe UI', sans-serif;
+            font-size: 18px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .captcha-btn {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 8px;
+            font-family: 'Futura', 'Segoe UI', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        
+
+        #blank-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            z-index: 9998;
+            display: block;
+        }
+
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .intro-number-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .intro-digit {
+            font-size: 48px;
+            color: black;
+            animation: fadeOut 4s ease forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                color: white;
+                opacity: 0;
+            }
+        }
