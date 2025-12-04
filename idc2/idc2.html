@@ -17,11 +17,7 @@
       --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.5);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -31,28 +27,19 @@
       min-height: 100vh;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    .page {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+    .page { display: flex; flex-direction: column; min-height: 100vh; }
 
     header {
       position: sticky;
       top: 0;
       z-index: 50;
       backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
+      background: linear-gradient(to bottom,
         rgba(5, 5, 16, 0.96),
         rgba(5, 5, 16, 0.85),
-        transparent
-      );
+        transparent);
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -102,9 +89,7 @@
       border: 1px solid rgba(92, 255, 182, 0.5);
     }
 
-    main {
-      flex: 1;
-    }
+    main { flex: 1; }
 
     .hero {
       max-width: 1100px;
@@ -117,17 +102,9 @@
     }
 
     @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        padding-top: 2.5rem;
-      }
-      .nav {
-        flex-wrap: wrap;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
+      .hero { grid-template-columns: 1fr; padding-top: 2.5rem; }
+      .nav { flex-wrap: wrap; }
+      .nav-links { flex-wrap: wrap; justify-content: flex-end; }
     }
 
     .hero-pre {
@@ -220,7 +197,6 @@
       color: var(--text-main);
     }
 
-    /* Content sections */
     .sections {
       max-width: 1100px;
       margin: 0 auto;
@@ -246,22 +222,13 @@
       margin-bottom: 0.65rem;
     }
 
-    section h3 {
-      font-size: 1rem;
-      margin: 0.5rem 0 0.35rem;
-    }
-
     section p {
       font-size: 0.92rem;
       color: var(--text-muted);
       margin-bottom: 0.4rem;
     }
 
-    ul {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 0.3rem;
-    }
+    ul { list-style: none; padding-left: 0; margin-top: 0.3rem; }
 
     li {
       font-size: 0.9rem;
@@ -347,11 +314,7 @@
       box-shadow: var(--shadow-soft);
     }
 
-    video {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+    video { width: 100%; display: block; }
 
     footer {
       max-width: 1100px;
@@ -366,11 +329,7 @@
       margin-top: 0.5rem;
     }
 
-    @media (max-width: 600px) {
-      footer {
-        flex-direction: column;
-      }
-    }
+    @media (max-width: 600px) { footer { flex-direction: column; } }
   </style>
 </head>
 <body>
@@ -393,9 +352,7 @@
         <div class="hero-left">
           <div class="hero-pre">Project Documentation</div>
           <h1 class="hero-title">MUSIC BOT</h1>
-          <p class="hero-subtitle">
-            a machine that helps you find new music when you get tired of your playlist.
-          </p>
+          <p class="hero-subtitle">a machine that helps you find new music when you get tired of your playlist.</p>
           <div class="hero-tagline">
             <span class="hero-tag-dot"></span>
             A physical music recommender using ESP32, a rotary encoder, LCD, and a thermal printer.
@@ -492,7 +449,6 @@
             explicit settings, and watching the recommendation list print out on the thermal printer.
           </p>
           <div class="video-wrapper">
-            <!-- Replace src with the correct path if needed -->
             <video controls>
               <source src="IMG_5121.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -509,25 +465,45 @@
           </p>
 
           <div class="gallery">
+
+            <!-- New enclosure photos -->
+            <div class="gallery-item">
+              <img src="IMG_5123.jpeg" alt="Finished Music Bot enclosure front view with LCD and knob" />
+              <div class="gallery-caption">
+                Final enclosure: laser-cut box with engraved “MUSIC BOT,” LCD window, and rotary encoder knob.
+              </div>
+            </div>
+
+            <div class="gallery-item">
+              <img src="IMG_5124.jpeg" alt="Angled view of finished Music Bot enclosure on table" />
+              <div class="gallery-caption">
+                Angled view of the completed box, ready to plug in and start printing playlists.
+              </div>
+            </div>
+
+            <!-- Original photos -->
             <div class="gallery-item">
               <img src="IMG_4930.jpeg" alt="Early breadboard prototype with ESP32, LCD, and rotary encoder" />
               <div class="gallery-caption">
-                Printer test: WiFi connected and printing a set of rap recommendations as a receipt.
+                Early prototype: ESP32, rotary encoder, LCD and printer power board all on loose
+                breadboards.
               </div>
             </div>
+
             <div class="gallery-item">
               <img src="IMG_5110.jpeg" alt="Music Bot mounted inside laser-cut wooden enclosure during testing" />
               <div class="gallery-caption">
                 Mid-build: parts mounted into a laser-cut wooden chassis, wiring still exposed for testing.
               </div>
             </div>
+
             <div class="gallery-item">
               <img src="IMG_C723732A-3E7E-4910-BA2F-15D6B943A4CD.jpeg" alt="Finished printer module printing rap recommendations" />
               <div class="gallery-caption">
-                Early prototype: ESP32, rotary encoder, LCD and printer power board all on loose
-                breadboards.
+                Printer test: WiFi connected and printing a set of rap recommendations as a receipt.
               </div>
             </div>
+
           </div>
         </section>
       </div>
@@ -540,7 +516,6 @@
   </div>
 
   <script>
-    // Smooth scrolling + active nav highlighting
     const navLinks = document.querySelectorAll(".nav-link");
     const sections = Array.from(document.querySelectorAll("section[id]"));
 
