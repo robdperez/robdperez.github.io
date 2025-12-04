@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MUSIC BOT – Project Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050510;
+      --bg-alt: #0c0c1a;
+      --accent: #5cffb6;
+      --accent-soft: rgba(92, 255, 182, 0.18);
+      --text-main: #f9f9ff;
+      --text-muted: #a3a3c2;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --card-radius: 18px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10102b 0, #050510 55%, #020208 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout */
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 16, 0.96),
+        rgba(5, 5, 16, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--text-main);
+      transform: translateY(-1px);
+    }
+
+    .nav-link.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(92, 255, 182, 0.5);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.5rem;
+      }
+      .nav {
+        flex-wrap: wrap;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+
+    .hero-pre {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-tag-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at top, #23235a, #0b0b1c);
+      border-radius: 22px;
+      padding: 1.4rem 1.2rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    .chip {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      background: rgba(3, 3, 12, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .chip.accent {
+      border-color: rgba(92, 255, 182, 0.6);
+      background: rgba(92, 255, 182, 0.06);
+      color: var(--accent);
+    }
+
+    .hero-card {
+      margin-top: 0.4rem;
+      padding: 0.9rem 0.9rem 0.9rem;
+      border-radius: var(--card-radius);
+      background: rgba(4, 4, 12, 0.92);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+    }
+
+    .metric {
+      padding: 0.5rem 0.55rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .metric-label {
+      color: var(--text-muted);
+      font-size: 0.7rem;
+    }
+
+    .metric-value {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-top: 0.1rem;
+    }
+
+    /* Sections */
+    .sections {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    section {
+      border-radius: var(--card-radius);
+      background: rgba(7, 7, 22, 0.95);
+      border: 1px solid var(--border-subtle);
+      padding: 1.4rem 1.5rem 1.3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    section h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.65rem;
+    }
+
+    section h3 {
+      font-size: 1rem;
+      margin: 0.5rem 0 0.35rem;
+    }
+
+    section p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .two-col {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.3rem;
+    }
+
+    li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.25rem;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    code {
+      font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.82rem;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 0.15rem 0.3rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .code-block {
+      margin-top: 0.5rem;
+      padding: 0.75rem 0.8rem;
+      border-radius: 10px;
+      background: #050511;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow-x: auto;
+      font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: #f1f1ff;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+    }
+
+    .callout {
+      border-radius: 12px;
+      border: 1px solid rgba(92, 255, 182, 0.5);
+      background: rgba(92, 255, 182, 0.04);
+      padding: 0.6rem 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav">
+        <div class="nav-logo">MUSIC BOT</div>
+        <div class="nav-links">
+          <button class="nav-link active" data-target="overview">Overview</button>
+          <button class="nav-link" data-target="hardware">Hardware</button>
+          <button class="nav-link" data-target="software">Software</button>
+          <button class="nav-link" data-target="flow">How It Works</button>
+          <button class="nav-link" data-target="demo">Demo & UX</button>
+          <button class="nav-link" data-target="future">Future Ideas</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-left">
+          <div class="hero-pre">Project Documentation</div>
+          <h1 class="hero-title">MUSIC BOT</h1>
+          <p class="hero-subtitle">
+            a machine that helps you find new music when you get tired of your playlist.
+          </p>
+          <div class="hero-tagline">
+            <span class="hero-tag-dot"></span>
+            Built with ESP32, a thermal printer, LCD, and AI.
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-chip-row">
+            <span class="chip accent">Physical Computing</span>
+            <span class="chip">ESP32</span>
+            <span class="chip">OpenAI API</span>
+            <span class="chip">Rotary Encoder UI</span>
+            <span class="chip">Thermal Printer</span>
+          </div>
+
+          <div class="hero-card">
+            <h3>What Music Bot Does</h3>
+            <p>
+              Music Bot is a physical recommender machine. You choose a genre, aggression level,
+              and explicit/clean preference on the rotary encoder. The ESP32 calls an AI model and
+              prints a curated list of songs on a receipt-like strip so you can discover new music
+              away from your screen.
+            </p>
+
+            <div class="hero-metrics">
+              <div class="metric">
+                <div class="metric-label">Genres</div>
+                <div class="metric-value">10+</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Songs/Print</div>
+                <div class="metric-value">10</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Controls</div>
+                <div class="metric-value">1 dial</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="sections">
+        <!-- OVERVIEW -->
+        <section id="overview">
+          <h2>Overview</h2>
+          <p>
+            Music Bot is a tangible interface for music discovery. Instead of scrolling endlessly
+            through streaming apps, you interact with a simple hardware interface: a rotary encoder,
+            a 16x2 LCD screen, and a small thermal printer that prints personalized song
+            recommendations as a physical “playlist receipt.”
+          </p>
+          <p>
+            The goal is to slow the user down and turn music discovery into a tiny ritual. You pick
+            how you’re feeling, the kind of sound you want, and whether explicit lyrics are okay, then
+            the machine does the rest.
+          </p>
+
+          <div class="pill-row">
+            <span class="pill">Genre-based recommendations</span>
+            <span class="pill">Aggression scale (1–10)</span>
+            <span class="pill">Explicit / clean filter</span>
+            <span class="pill">Physical printout</span>
+          </div>
+
+          <div class="callout">
+            Design intention: make finding new music feel like using a gacha machine or ticket
+            dispenser — fun, physical, and a little unpredictable.
+          </div>
+        </section>
+
+        <!-- HARDWARE -->
+        <section id="hardware">
+          <h2>Hardware</h2>
+          <div class="two-col">
+            <div>
+              <h3>Core Components</h3>
+              <ul>
+                <li>ESP32 development board (WiFi-enabled microcontroller)</li>
+                <li>16x2 LCD display (with parallel pins)</li>
+                <li>Rotary encoder with push button (for menu navigation)</li>
+                <li>Thermal receipt printer (UART / TTL serial)</li>
+                <li>External power supply for printer (5V or 9V, high current)</li>
+                <li>Breadboard, jumper wires, resistors as needed</li>
+              </ul>
+            </div>
+            <div>
+              <h3>High-Level Wiring</h3>
+              <p>
+                The ESP32 drives the LCD and reads the rotary encoder while talking to the thermal
+                printer over a secondary UART. The WiFi radio connects to the OpenAI API in the
+                background.
+              </p>
+              <ul>
+                <li>LCD: RS, E, D4–D7 wired to 6 digital pins on the ESP32.</li>
+                <li>Encoder: CLK, DT, and SW wired to GPIO pins, using <code>INPUT_PULLUP</code>.</li>
+                <li>Printer: RX/TX wired to a hardware serial port (e.g. UART1) on the ESP32.</li>
+                <li>Power: ESP32 via USB, printer via dedicated high-current supply.</li>
+              </ul>
+              <p>
+                All grounds are tied together so the ESP32 and printer share the same reference.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SOFTWARE -->
+        <section id="software">
+          <h2>Software</h2>
+          <div class="two-col">
+            <div>
+              <h3>Stack</h3>
+              <ul>
+                <li>Arduino framework on ESP32</li>
+                <li><code>WiFi.h</code> and <code>WiFiClientSecure.h</code> for networking</li>
+                <li><code>HTTPClient.h</code> to call the OpenAI API</li>
+                <li><code>LiquidCrystal.h</code> for the 16x2 LCD</li>
+                <li><code>ArduinoJson.h</code> to parse JSON responses</li>
+              </ul>
+              <p>
+                The main loop only listens to the encoder and button, and all network logic is
+                encapsulated in a function that builds a prompt, sends it to the AI model, and turns
+                the response into a list of songs.
+              </p>
+            </div>
+            <div>
+              <h3>Prompt Logic (ESP32-side)</h3>
+              <div class="code-block">
+<pre>// Pseudo-prompt sent to OpenAI:
+"Recommend a list of 10 &lt;GENRE&gt; songs. 
+The aggression level should be &lt;1-10&gt; out of 10, 
+where 1 is very chill and 10 is extremely aggressive. 
+&lt;EXPLICIT OR CLEAN INSTRUCTION&gt;
+Respond with ONLY the list, one song per line 
+in the format 'Title - Artist'."</pre>
+              </div>
+              <p>
+                The response is parsed as plain text and then either printed directly or shown in the
+                Serial Monitor during development.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FLOW -->
+        <section id="flow">
+          <h2>How It Works</h2>
+          <h3>User Flow</h3>
+          <ol style="margin-left: 1.2rem; color: var(--text-muted); font-size: 0.92rem;">
+            <li>Select a genre on the LCD using the rotary encoder.</li>
+            <li>Press the encoder to confirm.</li>
+            <li>Choose aggression level (1–10) for how intense the music should feel.</li>
+            <li>Choose whether explicit lyrics are allowed or only clean tracks.</li>
+            <li>Music Bot calls the AI model and generates a 10-song list.</li>
+            <li>The list is printed on thermal paper like a receipt.</li>
+          </ol>
+
+          <h3 style="margin-top: 0.8rem;">State Machine</h3>
+          <p>
+            The interface is built as a simple state machine on the ESP32:
+          </p>
+          <ul>
+            <li><code>STATE_GENRE</code>: scroll genres, press to select</li>
+            <li><code>STATE_AGGRESSION</code>: scroll 1–10, press to select</li>
+            <li><code>STATE_EXPLICIT</code>: toggle explicit/clean, press to confirm</li>
+            <li><code>STATE_FETCHING</code>: lock input, query API, print results</li>
+          </ul>
+        </section>
+
+        <!-- DEMO -->
+        <section id="demo">
+          <h2>Demo & UX Notes</h2>
+          <p>
+            In a live demo, the user walks up, reads the short instructions on the LCD, and starts
+            turning the dial. It feels more like using a jukebox, gacha machine, or ticket printer
+            than browsing a streaming app. The printed strip becomes a physical to-do list of songs
+            to check out later.
+          </p>
+          <div class="two-col" style="margin-top: 0.6rem;">
+            <div>
+              <h3>What works well</h3>
+              <ul>
+                <li>Simple controls: one dial and one button.</li>
+                <li>Printed lists feel collectible and easy to share.</li>
+                <li>AI can adapt to many genres and moods.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Constraints & quirks</h3>
+              <ul>
+                <li>Thermal printer requires a strong, dedicated power supply.</li>
+                <li>WiFi quality affects latency between selection and print.</li>
+                <li>LCD is small, so text needs to be short and clear.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- FUTURE -->
+        <section id="future">
+          <h2>Future Ideas</h2>
+          <p>
+            Music Bot can be expanded in a lot of directions. Some ideas:
+          </p>
+          <ul>
+            <li>Support for subgenres (e.g., pluggnb, hyperpop, drill, ambient).</li>
+            <li>“Energy vs. Sadness” axis instead of just aggression.</li>
+            <li>QR codes on the receipt that link to playlists on Spotify/Apple Music.</li>
+            <li>Session history so the bot avoids recommending the same track twice.</li>
+            <li>Battery-powered portable version with a custom 3D printed enclosure.</li>
+          </ul>
+          <p style="margin-top: 0.4rem;">
+            The core idea is stable: a physical gateway into algorithmic music discovery. Most future
+            work focuses on making it faster, more expressive, and more portable.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div>Music Bot — a machine for discovering new songs when your playlist feels stale.</div>
+      <div>Built with ESP32, thermal printing, and AI-powered recommendations.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth scrolling + active nav highlighting
+    const navLinks = document.querySelectorAll(".nav-link");
+    const sections = Array.from(document.querySelectorAll("section[id]"));
+
+    navLinks.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const targetId = btn.getAttribute("data-target");
+        const section = document.getElementById(targetId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY;
+      let currentId = "overview";
+
+      for (const section of sections) {
+        const rect = section.getBoundingClientRect();
+        const offsetTop = rect.top + window.scrollY;
+        if (scrollPos >= offsetTop - 150) {
+          currentId = section.id;
+        }
+      }
+
+      navLinks.forEach((btn) => {
+        const id = btn.getAttribute("data-target");
+        btn.classList.toggle("active", id === currentId);
+      });
+    }
+
+    document.addEventListener("scroll", updateActiveNav);
+    window.addEventListener("load", updateActiveNav);
+  </script>
+</body>
+</html>
