@@ -427,18 +427,28 @@
         <section id="overview">
           <h2>Overview</h2>
           <p>
-            Music Bot is a small stand-alone machine that recommends new songs based on the vibe you’re
-            in the mood for. It uses a 16x2 LCD to walk you through three choices:
+            This was an individual project built around a Personal Pet Peeve. Mine is getting completely 
+            tired of my playlists and then wasting time scrolling through music apps, skipping every song 
+            because nothing feels right. Music Bot is my way of offloading that decision fatigue into a small physical machine.
           </p>
-          <ul>
-            <li>Pick a genre (Rap, EDM, Lo-Fi, etc.).</li>
-            <li>Set an aggression level from 1–10 (chill to chaotic).</li>
-            <li>Choose whether explicit lyrics are allowed or you want only clean tracks.</li>
-          </ul>
           <p>
-            Once you confirm, the ESP32 calls an AI model with those settings and generates a list of
-            ten songs. The thermal printer prints them out like a receipt, so discovery feels more
-            like using a jukebox ticket machine than a phone app.
+            On the front of the box, a 16×2 LCD and rotary encoder walk you through 
+            three simple choices: genre, aggression level from 1–10, and whether explicit lyrics are okay. 
+            The ESP32 sends those settings to an AI model, then prints a ten-song recommendation list on a thermal receipt, 
+            turning music discovery into a little ritual instead of more screen time.
+          </p>
+          <p>
+            I also wanted the box to have personality, not just feel like another screen. A rotary
+            encoder and 16×2 LCD give the interface a tactile, old-school menu vibe, and the thermal
+            printer feels like a tiny ticket machine or gacha pull for new tracks. Inside, an ESP32
+            handles WiFi, talks to the OpenAI API, and streams the generated playlist text to the
+            printer.
+          </p>
+          <p>
+            The project combines electronics, code, and fabrication: I wired the ESP32 to an LCD, 
+            rotary encoder, and high-current thermal printer, designed and laser-cut a wooden enclosure in Rhino, 
+            and debugged power and serial issues along the way. In the end, Music Bot turns the boring 
+            “what should I listen to?” problem into something playful and physical.
           </p>
 
           <div class="pill-row">
