@@ -36,7 +36,6 @@
       text-decoration: none;
     }
 
-    /* Layout */
     .page {
       display: flex;
       flex-direction: column;
@@ -85,6 +84,8 @@
       padding: 0.35rem 0.75rem;
       border-radius: 999px;
       color: var(--text-muted);
+      background: transparent;
+      border: none;
       transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
       cursor: pointer;
     }
@@ -219,33 +220,7 @@
       color: var(--text-main);
     }
 
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.6rem;
-      margin-top: 0.6rem;
-      font-size: 0.78rem;
-    }
-
-    .metric {
-      padding: 0.5rem 0.55rem;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px dashed rgba(255, 255, 255, 0.08);
-    }
-
-    .metric-label {
-      color: var(--text-muted);
-      font-size: 0.7rem;
-    }
-
-    .metric-value {
-      font-size: 0.95rem;
-      color: var(--accent);
-      margin-top: 0.1rem;
-    }
-
-    /* Sections */
+    /* Content sections */
     .sections {
       max-width: 1100px;
       margin: 0 auto;
@@ -282,12 +257,6 @@
       margin-bottom: 0.4rem;
     }
 
-    .two-col {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-
     ul {
       list-style: none;
       padding-left: 0;
@@ -310,26 +279,10 @@
       font-size: 0.9rem;
     }
 
-    code {
-      font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
-      font-size: 0.82rem;
-      background: rgba(0, 0, 0, 0.55);
-      padding: 0.15rem 0.3rem;
-      border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    .code-block {
-      margin-top: 0.5rem;
-      padding: 0.75rem 0.8rem;
-      border-radius: 10px;
-      background: #050511;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      overflow-x: auto;
-      font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
-      font-size: 0.82rem;
-      line-height: 1.4;
-      color: #f1f1ff;
+    .two-col {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     }
 
     .pill-row {
@@ -347,14 +300,57 @@
       color: var(--text-muted);
     }
 
-    .callout {
-      border-radius: 12px;
-      border: 1px solid rgba(92, 255, 182, 0.5);
-      background: rgba(92, 255, 182, 0.04);
-      padding: 0.6rem 0.75rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
+    .gallery {
+      display: grid;
+      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 0.7rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #050510;
+    }
+
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+      opacity: 0.9;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.8rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    }
+
+    .video-wrapper {
+      margin-top: 0.5rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #050510;
+      box-shadow: var(--shadow-soft);
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     footer {
@@ -384,16 +380,15 @@
         <div class="nav-logo">MUSIC BOT</div>
         <div class="nav-links">
           <button class="nav-link active" data-target="overview">Overview</button>
-          <button class="nav-link" data-target="hardware">Hardware</button>
-          <button class="nav-link" data-target="software">Software</button>
           <button class="nav-link" data-target="flow">How It Works</button>
-          <button class="nav-link" data-target="demo">Demo & UX</button>
-          <button class="nav-link" data-target="future">Future Ideas</button>
+          <button class="nav-link" data-target="demo">Demo Video</button>
+          <button class="nav-link" data-target="progress">Progress Pics</button>
         </div>
       </nav>
     </header>
 
     <main>
+      <!-- HERO -->
       <section class="hero" id="top">
         <div class="hero-left">
           <div class="hero-pre">Project Documentation</div>
@@ -403,41 +398,26 @@
           </p>
           <div class="hero-tagline">
             <span class="hero-tag-dot"></span>
-            Built with ESP32, a thermal printer, LCD, and AI.
+            A physical music recommender using ESP32, a rotary encoder, LCD, and a thermal printer.
           </div>
         </div>
         <div class="hero-right">
           <div class="hero-chip-row">
             <span class="chip accent">Physical Computing</span>
             <span class="chip">ESP32</span>
-            <span class="chip">OpenAI API</span>
-            <span class="chip">Rotary Encoder UI</span>
+            <span class="chip">LCD Interface</span>
             <span class="chip">Thermal Printer</span>
+            <span class="chip">OpenAI API</span>
           </div>
 
           <div class="hero-card">
-            <h3>What Music Bot Does</h3>
+            <h3>What Music Bot Is</h3>
             <p>
-              Music Bot is a physical recommender machine. You choose a genre, aggression level,
-              and explicit/clean preference on the rotary encoder. The ESP32 calls an AI model and
-              prints a curated list of songs on a receipt-like strip so you can discover new music
-              away from your screen.
+              Instead of scrolling through an app, Music Bot turns music discovery into a tiny ritual.
+              You twist a dial to choose a genre, pick how aggressive you want the songs to feel,
+              decide if explicit lyrics are allowed, and the machine prints out a custom list of tracks
+              for you to explore later.
             </p>
-
-            <div class="hero-metrics">
-              <div class="metric">
-                <div class="metric-label">Genres</div>
-                <div class="metric-value">10+</div>
-              </div>
-              <div class="metric">
-                <div class="metric-label">Songs/Print</div>
-                <div class="metric-value">10</div>
-              </div>
-              <div class="metric">
-                <div class="metric-label">Controls</div>
-                <div class="metric-value">1 dial</div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -447,181 +427,105 @@
         <section id="overview">
           <h2>Overview</h2>
           <p>
-            Music Bot is a tangible interface for music discovery. Instead of scrolling endlessly
-            through streaming apps, you interact with a simple hardware interface: a rotary encoder,
-            a 16x2 LCD screen, and a small thermal printer that prints personalized song
-            recommendations as a physical “playlist receipt.”
+            Music Bot is a small stand-alone machine that recommends new songs based on the vibe you’re
+            in the mood for. It uses a 16x2 LCD to walk you through three choices:
           </p>
+          <ul>
+            <li>Pick a genre (Rap, EDM, Lo-Fi, etc.).</li>
+            <li>Set an aggression level from 1–10 (chill to chaotic).</li>
+            <li>Choose whether explicit lyrics are allowed or you want only clean tracks.</li>
+          </ul>
           <p>
-            The goal is to slow the user down and turn music discovery into a tiny ritual. You pick
-            how you’re feeling, the kind of sound you want, and whether explicit lyrics are okay, then
-            the machine does the rest.
+            Once you confirm, the ESP32 calls an AI model with those settings and generates a list of
+            ten songs. The thermal printer prints them out like a receipt, so discovery feels more
+            like using a jukebox ticket machine than a phone app.
           </p>
 
           <div class="pill-row">
-            <span class="pill">Genre-based recommendations</span>
-            <span class="pill">Aggression scale (1–10)</span>
-            <span class="pill">Explicit / clean filter</span>
-            <span class="pill">Physical printout</span>
-          </div>
-
-          <div class="callout">
-            Design intention: make finding new music feel like using a gacha machine or ticket
-            dispenser — fun, physical, and a little unpredictable.
+            <span class="pill">Genre-based recs</span>
+            <span class="pill">Aggression scale</span>
+            <span class="pill">Explicit / clean toggle</span>
+            <span class="pill">Physical playlist receipts</span>
           </div>
         </section>
 
-        <!-- HARDWARE -->
-        <section id="hardware">
-          <h2>Hardware</h2>
-          <div class="two-col">
-            <div>
-              <h3>Core Components</h3>
-              <ul>
-                <li>ESP32 development board (WiFi-enabled microcontroller)</li>
-                <li>16x2 LCD display (with parallel pins)</li>
-                <li>Rotary encoder with push button (for menu navigation)</li>
-                <li>Thermal receipt printer (UART / TTL serial)</li>
-                <li>External power supply for printer (5V or 9V, high current)</li>
-                <li>Breadboard, jumper wires, resistors as needed</li>
-              </ul>
-            </div>
-            <div>
-              <h3>High-Level Wiring</h3>
-              <p>
-                The ESP32 drives the LCD and reads the rotary encoder while talking to the thermal
-                printer over a secondary UART. The WiFi radio connects to the OpenAI API in the
-                background.
-              </p>
-              <ul>
-                <li>LCD: RS, E, D4–D7 wired to 6 digital pins on the ESP32.</li>
-                <li>Encoder: CLK, DT, and SW wired to GPIO pins, using <code>INPUT_PULLUP</code>.</li>
-                <li>Printer: RX/TX wired to a hardware serial port (e.g. UART1) on the ESP32.</li>
-                <li>Power: ESP32 via USB, printer via dedicated high-current supply.</li>
-              </ul>
-              <p>
-                All grounds are tied together so the ESP32 and printer share the same reference.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- SOFTWARE -->
-        <section id="software">
-          <h2>Software</h2>
-          <div class="two-col">
-            <div>
-              <h3>Stack</h3>
-              <ul>
-                <li>Arduino framework on ESP32</li>
-                <li><code>WiFi.h</code> and <code>WiFiClientSecure.h</code> for networking</li>
-                <li><code>HTTPClient.h</code> to call the OpenAI API</li>
-                <li><code>LiquidCrystal.h</code> for the 16x2 LCD</li>
-                <li><code>ArduinoJson.h</code> to parse JSON responses</li>
-              </ul>
-              <p>
-                The main loop only listens to the encoder and button, and all network logic is
-                encapsulated in a function that builds a prompt, sends it to the AI model, and turns
-                the response into a list of songs.
-              </p>
-            </div>
-            <div>
-              <h3>Prompt Logic (ESP32-side)</h3>
-              <div class="code-block">
-<pre>// Pseudo-prompt sent to OpenAI:
-"Recommend a list of 10 &lt;GENRE&gt; songs. 
-The aggression level should be &lt;1-10&gt; out of 10, 
-where 1 is very chill and 10 is extremely aggressive. 
-&lt;EXPLICIT OR CLEAN INSTRUCTION&gt;
-Respond with ONLY the list, one song per line 
-in the format 'Title - Artist'."</pre>
-              </div>
-              <p>
-                The response is parsed as plain text and then either printed directly or shown in the
-                Serial Monitor during development.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- FLOW -->
+        <!-- HOW IT WORKS -->
         <section id="flow">
           <h2>How It Works</h2>
-          <h3>User Flow</h3>
-          <ol style="margin-left: 1.2rem; color: var(--text-muted); font-size: 0.92rem;">
-            <li>Select a genre on the LCD using the rotary encoder.</li>
-            <li>Press the encoder to confirm.</li>
-            <li>Choose aggression level (1–10) for how intense the music should feel.</li>
-            <li>Choose whether explicit lyrics are allowed or only clean tracks.</li>
-            <li>Music Bot calls the AI model and generates a 10-song list.</li>
-            <li>The list is printed on thermal paper like a receipt.</li>
-          </ol>
-
-          <h3 style="margin-top: 0.8rem;">State Machine</h3>
-          <p>
-            The interface is built as a simple state machine on the ESP32:
-          </p>
-          <ul>
-            <li><code>STATE_GENRE</code>: scroll genres, press to select</li>
-            <li><code>STATE_AGGRESSION</code>: scroll 1–10, press to select</li>
-            <li><code>STATE_EXPLICIT</code>: toggle explicit/clean, press to confirm</li>
-            <li><code>STATE_FETCHING</code>: lock input, query API, print results</li>
-          </ul>
-        </section>
-
-        <!-- DEMO -->
-        <section id="demo">
-          <h2>Demo & UX Notes</h2>
-          <p>
-            In a live demo, the user walks up, reads the short instructions on the LCD, and starts
-            turning the dial. It feels more like using a jukebox, gacha machine, or ticket printer
-            than browsing a streaming app. The printed strip becomes a physical to-do list of songs
-            to check out later.
-          </p>
-          <div class="two-col" style="margin-top: 0.6rem;">
+          <div class="two-col">
             <div>
-              <h3>What works well</h3>
+              <h3>User Flow</h3>
               <ul>
-                <li>Simple controls: one dial and one button.</li>
-                <li>Printed lists feel collectible and easy to share.</li>
-                <li>AI can adapt to many genres and moods.</li>
+                <li>Turn the rotary encoder to scroll through genres on the LCD.</li>
+                <li>Press the encoder to lock in your genre.</li>
+                <li>Twist again to pick an aggression level from 1–10.</li>
+                <li>Press to confirm, then toggle between explicit / clean.</li>
+                <li>After a short pause, Music Bot prints a ten-song recommendation list.</li>
               </ul>
             </div>
             <div>
-              <h3>Constraints & quirks</h3>
-              <ul>
-                <li>Thermal printer requires a strong, dedicated power supply.</li>
-                <li>WiFi quality affects latency between selection and print.</li>
-                <li>LCD is small, so text needs to be short and clear.</li>
-              </ul>
+              <h3>Interaction Goals</h3>
+              <p>
+                The goal is to slow down recommendation, make it tactile, and detach it from a phone
+                screen. The printed slip becomes something you can keep in your wallet, stick on a
+                notebook, or hand to a friend.
+              </p>
             </div>
           </div>
         </section>
 
-        <!-- FUTURE -->
-        <section id="future">
-          <h2>Future Ideas</h2>
+        <!-- DEMO VIDEO -->
+        <section id="demo">
+          <h2>Demo Video</h2>
           <p>
-            Music Bot can be expanded in a lot of directions. Some ideas:
+            This short demo shows the full interaction: selecting a genre, choosing aggression and
+            explicit settings, and watching the recommendation list print out on the thermal printer.
           </p>
-          <ul>
-            <li>Support for subgenres (e.g., pluggnb, hyperpop, drill, ambient).</li>
-            <li>“Energy vs. Sadness” axis instead of just aggression.</li>
-            <li>QR codes on the receipt that link to playlists on Spotify/Apple Music.</li>
-            <li>Session history so the bot avoids recommending the same track twice.</li>
-            <li>Battery-powered portable version with a custom 3D printed enclosure.</li>
-          </ul>
-          <p style="margin-top: 0.4rem;">
-            The core idea is stable: a physical gateway into algorithmic music discovery. Most future
-            work focuses on making it faster, more expressive, and more portable.
+          <div class="video-wrapper">
+            <!-- Replace src with the correct path if needed -->
+            <video controls>
+              <source src="IMG_5121.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
+        <!-- PROGRESS PICTURES -->
+        <section id="progress">
+          <h2>Progress Pictures</h2>
+          <p>
+            Music Bot went through a few stages, from loose breadboard chaos to a more contained
+            plywood enclosure. These photos show how the wiring and physical design evolved over time.
           </p>
+
+          <div class="gallery">
+            <div class="gallery-item">
+              <img src="IMG_4930.jpeg" alt="Early breadboard prototype with ESP32, LCD, and rotary encoder" />
+              <div class="gallery-caption">
+                Early prototype: ESP32, rotary encoder, LCD and printer power board all on loose
+                breadboards.
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="IMG_5110.jpeg" alt="Music Bot mounted inside laser-cut wooden enclosure during testing" />
+              <div class="gallery-caption">
+                Mid-build: parts mounted into a laser-cut wooden chassis, wiring still exposed for testing.
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img src="IMG_C723732A-3E7E-4910-BA2F-15D6B943A4CD.jpeg" alt="Finished printer module printing rap recommendations" />
+              <div class="gallery-caption">
+                Printer test: WiFi connected and printing a set of rap recommendations as a receipt.
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </main>
 
     <footer>
-      <div>Music Bot — a machine for discovering new songs when your playlist feels stale.</div>
-      <div>Built with ESP32, thermal printing, and AI-powered recommendations.</div>
+      <div>MUSIC BOT — a machine that helps you find new music when your playlist feels stale.</div>
+      <div>Built with ESP32, physical UI, and AI-generated recommendations.</div>
     </footer>
   </div>
 
