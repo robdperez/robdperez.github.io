@@ -158,7 +158,7 @@ const rtFailedKeys=new Set();
 // Paste the two public values from Supabase Project Settings -> API.
 // Never put a service_role/secret key in this file.
 const SUPABASE_URL='https://furvrwlslsjpjuurdarr.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY='Psb_publishable_UMqlstKWC8IAxMbyxc9RhA_a5TMEmer';
+const SUPABASE_PUBLISHABLE_KEY='sb_publishable_UMqlstKWC8IAxMbyxc9RhA_a5TMEmer';
 const SUPABASE_CONFIGURED=SUPABASE_URL.startsWith('https://')&&!SUPABASE_URL.includes('PASTE_')&&SUPABASE_PUBLISHABLE_KEY.length>20&&!SUPABASE_PUBLISHABLE_KEY.includes('PASTE_');
 let sb=null,authUser=null,accountReady=false,cloudSaveTimer=null,authMode='signin',tmdbProxyReady=true;
 const live=()=>SUPABASE_CONFIGURED&&!!authUser&&tmdbProxyReady;
